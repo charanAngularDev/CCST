@@ -1,11 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { routing } from './app.route';
-import { LoginService } from './login.service';
-import { HttpModule } from '@angular/http';
+import { AuthenticationService } from './authentication.service';
 import { LoginComponent } from './login/login.component';
 import { ForpasswordComponent } from './forpassword/forpassword.component';
 
@@ -20,9 +20,9 @@ import { ForpasswordComponent } from './forpassword/forpassword.component';
     BrowserModule,
     ReactiveFormsModule,
     routing,
-    HttpModule
+    HttpClientModule,
   ],
-  providers: [LoginService],
+  providers: [ AuthenticationService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -19,10 +19,10 @@
                   <img src="/assets/businessman.png">
                 </div>
                 <div class="col-md-12 col-sm-12 col-xs-12 user-login-box">
-                  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" >  
+                  <form [formGroup]="loginForm" (ngSubmit)="checkIn()" >  
                       <div class="form-group">
                           <span class="glyphicon glyphicon-user user-icon"></span>
-                          <input type="email" #refName class="form-control" placeholder="User Name" formControlName="username">
+                          <input type="email" class="form-control" placeholder="User Name" formControlName="username">
                           <div *ngIf="loginForm.controls['username'].hasError('pattern')" class="alert alert-danger">
                               Please enter valid User Name.
                           </div>
@@ -37,8 +37,8 @@
                       <div class="checkbox">
                         <label><input type="checkbox" value="">Remember me</label>
                       </div>
-                      <div>
-                        <button type="submit" class="btn btn-success btn-block">Login</button>
+                      <div class="form-group">
+                        <button [disabled]="valiadation" type="submit" class="btn btn-success btn-block">Login</button>
                       </div>
                       <div class="well well-sm">
                         <a routerLink="/login/pass"><button type="button" class="btn btn-link">Forgot Password?</button></a> 
