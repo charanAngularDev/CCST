@@ -1,0 +1,138 @@
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading">List Of Users</div>
+  <div class="panel-body">
+    <p>Add,Update or delete the users from the list</p>
+    <button class="btn btn-primary" data-toggle="modal" data-target="#userCreateModal">Add USER</button>
+  </div>
+
+  <!-- Table -->
+  <table class="table col-sm-10 col-md-10 example-container mat-elevation-z8">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">name</th>
+        <th scope="col">email</th>
+        <th scope="col">phone</th>
+        <th scope="col">Job title</th>
+        <th scope="col">actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor ="let user of users" >
+        <td>{{user.id}}</td>
+        <td>{{user.name}}</td>
+        <td>
+          {{user.email}}
+        </td>
+        <td>{{user.phone}}</td>
+        <td>{{user.company.bs}}</td>
+        <td><button class="btn btn-info btn-sm" data-toggle="modal" data-target="#userEditModal" >Edit</button>
+       <button class="btn btn-warning btn-sm" >Delete</button></td>
+      </tr>
+     
+    </tbody>
+  </table>
+  
+</div>
+
+<div class="modal fade" id="userCreateModal" role="dialog" aria-labelledby="userCreateModallabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="userCreateModallabel">Add Users</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          
+            <div class="form-group">
+              <input type="text" name="employeeID" id="eid" class="form-control input-sm" placeholder="Employee ID">
+            </div>
+            
+              <div class="form-group">
+                <input type="text" name="employeeName" id="eName" class="form-control input-sm" placeholder="EmployeeName">
+              </div>
+            
+            
+              <div class="form-group">
+                <input type="text" name="employeeEmail" id="emEmail" class="form-control input-sm" placeholder="Employee Email">
+              </div>
+            
+            
+              <div class="form-group">
+                <input type="text" name="employeePhone" id="ePhone" class="form-control input-sm" placeholder="Employee Phone">
+              </div>
+           
+            
+              <div class="form-group">
+                <input type="text" name="employeeJob" id="eJob" class="form-control input-sm" placeholder="Job Title">
+              </div>
+            
+          </form>
+      
+          
+        </div>
+            
+
+          
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" (click)="createUserData(eid.value,ename.value,emEmail.value,ePhone.value,eJob.value)">Save</button>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="userEditModal" role="dialog" aria-labelledby="userEditModallabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="userCreateModallabel">Add Users</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            
+              <div class="form-group">
+                <input type="text" name="employeeID" id="eid" class="form-control input-sm" placeholder="Employee ID" [value]="User.id">
+              </div>
+              
+                <div class="form-group">
+                  <input type="text" name="employeeName" id="eName" class="form-control input-sm" placeholder="EmployeeName" [value]="selectedUser.name">
+                </div>
+              
+              
+                <div class="form-group">
+                  <input type="text" name="employeeEmail" id="emEmail" class="form-control input-sm" placeholder="Employee Email">
+                </div>
+              
+              
+                <div class="form-group">
+                  <input type="text" name="employeePhone" id="ePhone" class="form-control input-sm" placeholder="Employee Phone">
+                </div>
+             
+              
+                <div class="form-group">
+                  <input type="text" name="employeeJob" id="eJob" class="form-control input-sm" placeholder="Job Title">
+                </div>
+              
+            </form>
+        
+            
+          </div>
+              
+  
+            
+          
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" (click)="updateUserData(eid.value,ename.value,emEmail.value,ePhone.value,eJob.value)">Save</button>
+        </div>
+      </div>
+    </div>
