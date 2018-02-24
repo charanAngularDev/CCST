@@ -11,14 +11,14 @@ import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material';
 import{MatSortModule} from '@angular/material';
 import { MatFormFieldModule } from '@angular/material';
-import {MatInputModule, MatSelectModule, MatCheckboxModule, MatNativeDateModule, MatDialogModule} from '@angular/material';
+import {MatInputModule, MatSelectModule, MatCheckboxModule, MatNativeDateModule, MatDialogModule, MatStepperModule, MatListModule, MatFormFieldControl} from '@angular/material';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import{routing} from './app.route';
 import { SatisfactionFactorsComponent } from './satisfaction-factors/satisfaction-factors.component';
 import { MyDialogComponentComponent } from './my-dialog-component/my-dialog-component.component';
 import { UserDataDemoComponent } from './user-data-demo/user-data-demo.component';
 import { HttpModule } from '@angular/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -44,8 +44,12 @@ import { FormsModule } from '@angular/forms';
     MatNativeDateModule,
     routing,
     FormsModule,
+    ReactiveFormsModule,
     MatDialogModule,
-    HttpModule
+    HttpModule,
+    MatStepperModule,
+    MatListModule,
+    
 
     
   ],

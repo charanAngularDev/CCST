@@ -30,3 +30,5 @@ export class DatafetchService {
 }
 
 
+// return this.http.get(this.url).map((res:Response) =>res.json())
+//                               .catch((error:any)=>Observable.throw(error.json().error ||'server error'))
